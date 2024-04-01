@@ -1,0 +1,36 @@
+pip install pandas matplotlib
+
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a sample dataset
+np.random.seed(0)
+data = pd.DataFrame({
+    'A': np.random.normal(0, 1, 100),
+    'B': np.random.normal(1, 2, 100),
+    'C': np.random.normal(-1, 1.5, 100)
+})
+
+# Display the first few rows of the dataset
+print("Sample dataset:")
+print(data.head())
+
+# Calculate descriptive statistics
+print("\nDescriptive statistics:")
+print(data.describe())
+
+# Create histograms for each column
+data.hist(figsize=(10, 6))
+plt.suptitle("Histograms of Sample Dataset")
+plt.show()
+
+# Create a scatter plot between columns A and B
+plt.figure(figsize=(8, 6))
+plt.scatter(data['A'], data['B'])
+plt.title("Scatter Plot: A vs B")
+plt.xlabel("A")
+plt.ylabel("B")
+plt.grid(True)
+plt.show()
